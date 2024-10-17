@@ -24,7 +24,7 @@ const BookCard = (props) => {
             <br></br>
             Sold by {props.Email} for {props.price}
           </Card.Text>
-          <Button onClick={ e=>navigate(`/book/view/${props.id}`) } variant="primary">View</Button>
+          <Button onClick={ e=>navigate(props.link) } variant="primary">View</Button>
         </Card.Body>
         </Card>
   );

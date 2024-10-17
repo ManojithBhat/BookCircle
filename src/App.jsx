@@ -10,6 +10,7 @@ import LoginPage from "./pages/Login";
 import ListingPage from './pages/List';
 import BookDetailPage from './pages/Detail';
 import OrdersPage from './pages/ViewOrders';
+import ViewOrderDetails from './pages/ViewOrderDetail';
 
 //css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,7 +26,8 @@ function App() {
         <Route path="/login" element = {<LoginPage/ >}/>
         <Route path="/book/list" element = {<ListingPage/>}/>
         <Route path="/book/view/:bookId" element = {<BookDetailPage/>}/>
-        <Route path="/book/orders" element = {<OrdersPage/>}/>     
+        <Route path="/book/orders" element = {<OrdersPage/>}/>   
+        <Route path="/book/orders/:bookId" element = {<ViewOrderDetails/>}/>   
      </Routes>
     </div>
   );

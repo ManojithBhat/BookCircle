@@ -22,13 +22,13 @@ import { getStorage, ref, uploadBytes,getDownloadURL } from "firebase/storage"
 
 // web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID
-};
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId:process.env.REACT_APP_FIREBASE_PROJECT_ID ,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
+  };
 
 //initialize the app    
 const firebaseApp = initializeApp(firebaseConfig);
@@ -50,7 +50,7 @@ export const FirebaseProvider = (props)=>{
 
     useEffect(()=>{
         onAuthStateChanged(firebaseAuth,(user)=>{
-            console.log("user",user);
+            console.log("user",user.uid);
             if(user) setUser(user);
             else setUser(null);
         });
@@ -122,12 +122,20 @@ export const FirebaseProvider = (props)=>{
         })
         return result;
     };
-
-    const fetchOrders = async ()=>{
+    
+    const fetchOrders = async (userId)=>{
+        
         const collectionRef = collection(firestore,"books");
-        const q = query(collectionRef,where("userID","==",user.uid));
+        const q = query(collectionRef,where("userID","==",userId));
 
         const result = await getDocs(q);
+        return result;
+    }
+
+    const getOrders = async (bookId)=>{
+        const collectionRef = collection(firestore,"books",bookId,"orders");
+        const result = await getDocs(collectionRef);
+        return result;
     }
 
     const isLoggedIn = user ? true:false;
@@ -142,6 +150,8 @@ export const FirebaseProvider = (props)=>{
         getBookById,
         placeOrder,
         fetchOrders,
+        getOrders,
+        user,
         isLoggedIn}}>
             {props.children}
         </FirebaseContext.Provider>

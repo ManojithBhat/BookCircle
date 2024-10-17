@@ -19,7 +19,7 @@ const HomePage = ()=>{
             <CardGroup>
            {books.map((book)=>{
                 return(
-                    <BookCard key={book.id} id={book.id} {...book.data()}/>
+                    <BookCard key={book.id} link = {`/book/view/${book.id}`} id={book.id} {...book.data()}/>
                 )
            })}
         </CardGroup>
