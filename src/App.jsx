@@ -11,6 +11,7 @@ import ListingPage from './pages/List';
 import BookDetailPage from './pages/Detail';
 import OrdersPage from './pages/ViewOrders';
 import ViewOrderDetails from './pages/ViewOrderDetail';
+import BookPage from './pages/Books';
 
 //css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ function App() {
       <NavBar></NavBar>
     <Routes>
       <Route path="/" element = {<HomePage/>} />
+      <Route path="/book" element = {<BookPage/>} />
         <Route path="/register" element = {<RegisterPage/>}/>
         <Route path="/login" element = {<LoginPage/ >}/>
         <Route path="/book/list" element = {<ListingPage/>}/>

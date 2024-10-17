@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 
 import { useFirebase } from "../context/Firebase"
 
 const RegisterPage = () => {
 
     const firebase = useFirebase();
+    const navigate = useNavigate();
     
     const [email,setEmail] = useState();
     const [password,setPassword] = useState();

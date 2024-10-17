@@ -6,7 +6,8 @@ import {
     signInWithEmailAndPassword,
     GoogleAuthProvider,
     signInWithPopup,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut
 } from "firebase/auth"; //authenticaion
 import {
     getFirestore,
@@ -138,6 +139,15 @@ export const FirebaseProvider = (props)=>{
         return result;
     }
 
+
+    const signOutUser = ()=>{
+        signOut(firebaseAuth).then(() => {
+            console.log("signed out successfully");
+          }).catch((error) => {
+            console.log("error signing out",error);
+          });
+    }
+
     const isLoggedIn = user ? true:false;
 
     return (
@@ -152,6 +162,7 @@ export const FirebaseProvider = (props)=>{
         fetchOrders,
         getOrders,
         user,
+        signOutUser,
         isLoggedIn}}>
             {props.children}
         </FirebaseContext.Provider>

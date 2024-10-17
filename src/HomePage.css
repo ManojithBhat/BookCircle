@@ -1,0 +1,24 @@
+.hero-section {
+    background-color: #f8f9fa; /* Light background */
+    padding: 100px 0; /* Adjust padding */
+  }
+  
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .about-section {
+    background-color: #e9ecef;
+  }
+  
+  .about-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  footer {
+    background-color: #343a40;
+    color: white;
+  }
+  

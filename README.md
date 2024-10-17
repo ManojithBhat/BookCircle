@@ -1,70 +1,74 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# BookCircle - Campus Book Lending Platform
 
-## Available Scripts
+**BookCircle** is a platform for students to connect within the campus and sell or lend their books to peers. The application is built using **React** for the front-end and **Firebase** for backend services such as authentication, database, and storage.
 
-In the project directory, you can run:
+## Features
+- User authentication (Firebase Auth)
+- Book listing and management
+- Real-time database for listing available books
+- Peer-to-peer connections for book lending and selling
 
-### `npm start`
+## Tech Stack
+- **React**: Frontend framework for building user interfaces.
+- **Firebase**: Backend service for authentication, database, and storage.
+- **react-router-dom**: For routing between different pages.
+- **react-bootstrap**: To style the UI components easily.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
+- Node.js installed 
+- Firebase account and project setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/bookcircle.git
+cd bookcircle
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-### `npm run build`
+### 3. Create Firebase Project
+1. Go to [Firebase Console](https://console.firebase.google.com/) and create a new project.
+2. In your project settings, navigate to the **Web** section and create a new web app. 
+3. Copy your Firebase config keys.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4. Set Up Environment Variables
+Create a `.env` file in the root of your project with the following variables (replace the placeholders with your Firebase config values):
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+REACT_APP_FIREBASE_API_KEY=your-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+REACT_APP_FIREBASE_APP_ID=your-app-id
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 5. Start the Development Server
+```bash
+npm start
+```
 
-### `npm run eject`
+This will launch the application at `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
+- Once the app is running, users can sign up, log in, and start listing their books for lending or selling.
+- The app allows for easy connections between peers within the same campus.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
+To deploy the project, you can use Firebase Hosting or any other hosting service that supports React.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run build
+```
+This will create an optimized production build in the `build/` directory, which can be deployed to your hosting provider.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This readme guides users through the project setup, dependencies, environment variables, and how to get the app running.
