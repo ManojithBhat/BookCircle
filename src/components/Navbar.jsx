@@ -5,8 +5,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { useFirebase } from "../context/Firebase";
 
+
 const NavBar = () => {
   const firebase = useFirebase();
+
+  const signOut = ()=>{
+    firebase.signOutUser();
+    
+  }
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -28,7 +35,7 @@ const NavBar = () => {
               </Button>
             </div>
           ) : (
-            <Button variant="light" onClick={()=>firebase.signOutUser()} className="ms-2">
+            <Button variant="light" onClick={()=>signOut()} className="ms-2">
               Log Out 
             </Button>
           )}

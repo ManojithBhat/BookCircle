@@ -28,9 +28,10 @@ const LoginPage = () => {
         console.log("succesfully logged in the user",result);
     }
 
-  return(<div className="container mt-5">
-
-    <Form onSubmit={handleSubmit}>
+  return(
+  <div className="container mt-5 mx-auto" style={{ maxWidth: '400px' }}>
+<h4 className="mt-2 mb-2"> Login </h4>
+    <Form onSubmit={handleSubmit} >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control 
@@ -48,7 +49,7 @@ const LoginPage = () => {
       </Form.Group>
 
       <Button variant="primary">Sign In</Button>
-      <h3 className="m-5">Or</h3>
+      <p className="m-2">Or</p>
 
 
       <Button

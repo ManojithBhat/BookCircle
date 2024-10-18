@@ -20,6 +20,7 @@ import {
     where
 } from "firebase/firestore"; //firestore
 import { getStorage, ref, uploadBytes,getDownloadURL } from "firebase/storage"
+import { redirect } from "react-router-dom";
 
 // web app's Firebase configuration
 const firebaseConfig = {
@@ -51,7 +52,6 @@ export const FirebaseProvider = (props)=>{
 
     useEffect(()=>{
         onAuthStateChanged(firebaseAuth,(user)=>{
-            console.log("user",user.uid);
             if(user) setUser(user);
             else setUser(null);
         });
@@ -140,12 +140,9 @@ export const FirebaseProvider = (props)=>{
     }
 
 
-    const signOutUser = ()=>{
-        signOut(firebaseAuth).then(() => {
-            console.log("signed out successfully");
-          }).catch((error) => {
-            console.log("error signing out",error);
-          });
+    const signOutUser = async ()=>{
+         await signOut(firebaseAuth);
+        redirect("/");
     }
 
     const isLoggedIn = user ? true:false;

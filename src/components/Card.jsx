@@ -14,8 +14,8 @@ const BookCard = (props) => {
   }, []);
 
   return (
-      <Card style={{ width: "18rem",margin:"15px" }}>
-        <Card.Img variant="top" src={url} />
+      <Card variant = "info" style={{ width: "20rem",margin:"15px" }}>
+        <Card.Img variant="top" src={url} style={{ objectFit:"cover"}}  />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
           <Card.Text>
