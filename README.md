@@ -68,7 +68,24 @@ npm run build
 ```
 This will create an optimized production build in the `build/` directory, which can be deployed to your hosting provider.
 
----
 
+## Page
+
+### Home page
+![Home page](/public/Home.png)
+
+### Listing Page
+
+![List Page](/public/ListBooks.png)
+
+### Listed books
+
+![Listed Books](/public/ListedBooks.png)
+
+### Book section
+
+![Book Section](/public/bookSection.png)
+
+---
 
 This readme guides users through the project setup, dependencies, environment variables, and how to get the app running.
