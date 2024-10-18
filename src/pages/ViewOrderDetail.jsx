@@ -61,9 +61,8 @@ const ViewOrderDetails = () => {
                   <Card.Title>Order {order.id}</Card.Title>
                   <ListGroup variant="flush">
                     <ListGroup.Item>
-                      <strong>Ordered By:</strong> {order.displayName}
+                      <strong>Ordered By:</strong> {order.userEmail}
                     </ListGroup.Item>
-                    
                   </ListGroup>
                 </Card.Body>
               </Card>

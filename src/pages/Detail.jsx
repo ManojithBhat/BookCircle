@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFirebase } from "../context/Firebase";
-import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button, ListGroup, Alert } from 'react-bootstrap'
 
 const BookDetailPage = () => {
   const params = useParams();
@@ -9,6 +9,9 @@ const BookDetailPage = () => {
 
   const [data, setData] = useState(null);
   const [url, setUrl] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     firebase.getBookById(params.bookId).then((value) => setData(value.data()));
@@ -27,11 +30,34 @@ const BookDetailPage = () => {
   }
 
   const placeOrder = async()=>{
-    const result = await firebase.placeOrder(params.bookId).then(()=>alert("Order Placed")).catch((error)=>alert(error.message));
+    if (!firebase.isLoggedIn) {
+      setLoggedIn(false);
+    }else{
+        await firebase.placeOrder(params.bookId).then(()=>setIsOrderPlaced(true)).catch((error)=>setError(true));
+    }
+  }
+
+  if (loggedIn === false) {
+    return (
+      <Container className="mt-5">
+        <Alert variant="warning">
+          <Alert.Heading>Authentication Required</Alert.Heading>
+          <p>Please log in to view your orders.</p>
+        </Alert>
+      </Container>
+    )
   }
 
   return (
     <Container className="my-5">
+      <Alert variant="success" show={isOrderPlaced}>
+          <Alert.Heading>Order Placed</Alert.Heading>
+      </Alert>
+      <Alert variant="danger" show={error}>
+          <Alert.Heading>Error</Alert.Heading>
+          <p>Failed to place order. Please try again later.</p>
+      </Alert>
+      
     <Card>
       <Row className="g-0">
         <Col md={4}>
